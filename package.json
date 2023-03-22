@@ -1,5 +1,5 @@
 {
-  "name": "zajecia-3 praca domowa",
+  "name": "zajecia-2",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,5 @@
   },
   "description": "",
   "dependencies": {
-    "gulp-htmlmin": "^5.0.1"
   }
 }
