@@ -4,6 +4,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
 const fileInclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
+const htmlmin = require('gulp-htmlmin');
 
 const path = {
     root: "./dist/",
@@ -16,7 +17,7 @@ const path = {
 
 const css = function() {
     return gulp.src(path.cssSrc)
-        .pipe(sass().on("error", sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on("error", sass.logError))
         .pipe(autoprefixer())
         .pipe(gulp.dest(path.cssDist))
 };
@@ -33,6 +34,7 @@ const html = function() {
             prefix: "@@",
             basepath: "@file"
         }))
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest(path.root))
 }
 
