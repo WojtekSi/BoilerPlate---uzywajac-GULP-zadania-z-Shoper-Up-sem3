@@ -1,7 +1,6 @@
 {
-  "name": "zajecia-2",
+  "name": "zajecia-3 praca domowa",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +18,9 @@
     "gulp-imagemin": "^7.0.0",
     "gulp-sass": "^5.1.0",
     "sass": "^1.58.3"
+  },
+  "description": "",
+  "dependencies": {
+    "gulp-htmlmin": "^5.0.1"
   }
 }
