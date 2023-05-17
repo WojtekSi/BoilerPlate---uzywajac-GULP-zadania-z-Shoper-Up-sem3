@@ -1,60 +1,49 @@
-// import { userAge } from "./components/new-component";
+// class User {
+//     test = "test";
 
-// console.log("userAge: ", userAge);
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
 
+//     hello() {
+//         return `Hello my name is ${this.name}`;
+//     }
 
-// const obj = {
-//     name: "Jan",
-//     surname: "Kowalski",
-//     age: 30
-// };
-
-// const { name: userName, age: userAge } = obj;
-
-// console.log(userName);
-// console.log(userAge);
-
-// const arr = [1, 2, 3];
-
-// const [a, ,b] = arr;
-
-// console.log(a);
-// console.log(b);
-
-// function rest(name, ...items) {
-//     console.log(`Mam na imię ${name} i moje umiejetnosci to: ${items.join()}`);
-// }
-
-// rest('Marcin', 'JS', 'CSS', 'HTML', 'SSSS');
-
-// const spreadArr1 = [1, 2, 3, 4];
-// const spreadArr2 = [5, 6, 7, 8];
-// const spreadArr3 = [...spreadArr1, ...spreadArr2];
-// const string = "Ala ma kota";
-
-// console.log(spreadArr1);
-// console.log(spreadArr2);
-// console.log(spreadArr3);
-// console.log(...string);
-
-
-// const nazwa = name => console.log(`hello ${name}`);
-
-// nazwa('Marcin');
-
-// const element = document.querySelector('h2');
-
-// element.addEventListener('click', () => {
-
-// });
-
-// const name = "jan";
-
-// const obj = {
-//     sayHello: function() {
-
-//     },
-//     sayHello() {
-
+//     static sum(a,b) {
+//         console.log(a+b);
 //     }
 // }
+
+// class Developer extends User {
+//     constructor(name, age, language) {
+//         super(name, age);
+//         this.language = language;
+//     }
+
+//     helloWorld() {
+//         console.log(`${this.hello()} and I am ${this.language} developer`)
+//     }
+// }
+
+// // User.sum(10,5);
+
+// const user1 = new User("Marcin");
+// console.log(user1.hello());
+
+// const developer1 = new Developer("Jan", 30, 'Javascript');
+// developer1.helloWorld();
+
+import { Modal } from "./components/modal";
+
+const welcomeModal = new Modal('modal-welcome', { onCloseShowInfo: true });
+welcomeModal.init();
+
+// document.cookie = "user=Marcin; max-age=3600;";
+// console.log(document.cookie);
+
+localStorage.setItem("user", "Marcin");
+sessionStorage.setItem("user", "Marcin2");
+
+console.log(localStorage.getItem("user"));
+console.log(sessionStorage.getItem("user"));
