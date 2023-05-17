@@ -4,8 +4,9 @@ export class Modal {
     hideClassName = 'hide';
     modalHeight = '';
 
-    constructor(modalName, options) {
+    constructor(modalName, idShowModalButton, options) {
         this.modal = document.querySelector(`#${modalName}`);
+        this.buttonShowModal = document.querySelector(`#${idShowModalButton}`);
         this.options = options ?? {};
         this.closeButton = this.modal.querySelector('button');
         // this.#sayHello();
@@ -13,15 +14,18 @@ export class Modal {
 
     handleCloseButton() {
         this.closeButton.addEventListener('click', () => {
-            if(this.options.onCloseShowInfo) {
-                alert('CLOSE!')
-            } else {
-                this.modal.classList.add(this.hideClassName);
-                this.$bodyElement.classList.remove(this.bodyOverlayClassName);
-            }
+            this.$bodyElement.classList.remove(this.bodyOverlayClassName);
+            localStorage.setItem("hasBeenClickedButtonClose", "true");
+            this.modal.classList.add(this.hideClassName)
+            this.buttonShowModal.classList.remove(this.hideClassName);
+            this.handleShowModalButton();
         })
+    }
 
-        this.modalHeight = '1000px;';
+    handleShowModalButton(){
+        this.buttonShowModal.addEventListener('click',()=>{
+            this.init();
+        })
     }
 
     #sayHello() {
@@ -29,7 +33,12 @@ export class Modal {
     }
 
     init() {
-        this.$bodyElement.classList.add(this.bodyOverlayClassName);
+        this.modal.classList.remove(this.hideClassName)
+        if(localStorage["hasBeenClickedButtonClose"]!=="true"){
+            this.$bodyElement.classList.add(this.bodyOverlayClassName);
+        }
         this.handleCloseButton();
+        this.buttonShowModal.classList.add(this.hideClassName);
+
     }
 }
