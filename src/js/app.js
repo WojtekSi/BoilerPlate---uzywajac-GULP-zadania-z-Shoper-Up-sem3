@@ -36,14 +36,16 @@
 
 import { Modal } from "./components/modal";
 
-const welcomeModal = new Modal('modal-welcome', { onCloseShowInfo: true });
+const welcomeModal = new Modal('modal-welcome', "show-modal-welcome", {});
+
 welcomeModal.init();
 
 // document.cookie = "user=Marcin; max-age=3600;";
 // console.log(document.cookie);
 
-localStorage.setItem("user", "Marcin");
-sessionStorage.setItem("user", "Marcin2");
+// localStorage.setItem("user", "Marcin");
+// sessionStorage.setItem("user", "Marcin2");
 
-console.log(localStorage.getItem("user"));
-console.log(sessionStorage.getItem("user"));
+// console.log(localStorage.getItem("user"));
+// console.log(sessionStorage.getItem("user"));
+
